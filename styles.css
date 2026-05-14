@@ -1,77 +1,25 @@
-/* Configurações Gerais */
+/* =========================
+   RESET + BASE
+========================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    scroll-behavior: smooth; /* Deixa o deslize do menu suave */
+    scroll-behavior: smooth;
 }
 
 body {
-    background-color: #121212; /* Fundo escuro */
+    background: radial-gradient(circle at top, #0f0f1a, #050507);
     color: #ffffff;
     line-height: 1.6;
 }
 
-/* Menu de Navegação */
-.navegacao {
-    background-color: #1f1f1f;
-    padding: 1rem;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-}
-
-.menu {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-}
-
-.menu-link {
-    text-decoration: none;
-    color: #00d4ff;
-    font-weight: bold;
-    margin: 0 15px;
-    text-transform: uppercase;
-    transition: 0.3s;
-}
-
-.menu-link:hover {
-    color: #fff;
-}
-
-/* Cabeçalho (Início) */
-.cabecalho {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://via.placeholder.com'); /* Adicione uma imagem de fundo se quiser */
-    background-size: cover;
-}
-
-.foto-perfil {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
-    border: 4px solid #00d4ff;
-    margin-bottom: 20px;
-    object-fit: cover;
-}
-
-.cabecalho-sub-titulo {
-    font-size: 1.5rem;
-    color: #00d4ff;
-}
-
-/* Seções Gerais */
+/* =========================
+   UTILITÁRIOS
+========================= */
 section {
-    padding: 100px 20px;
+    padding: 120px 20px;
     max-width: 1000px;
     margin: 0 auto;
 }
@@ -80,84 +28,199 @@ h2 {
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 40px;
-    color: #00d4ff;
+    color: #00e5ff;
+    text-shadow: 0 0 15px #00e5ff;
     text-transform: uppercase;
 }
 
-/* Sobre Mim */
-.sobre-caixa {
-    background-color: #1f1f1f;
-    padding: 30px;
-    border-radius: 10px;
-    border-left: 5px solid #00d4ff;
+/* =========================
+   MENU
+========================= */
+.navegacao {
+    background: rgba(20, 20, 30, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
 }
 
-/* Projetos (Cards) */
+.menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: #00e5ff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    position: relative;
+}
+
+.menu-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: #ff00ff;
+    transition: 0.3s;
+}
+
+.menu-link:hover {
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff;
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+.menu-link:focus {
+    outline: 2px solid #00e5ff;
+    outline-offset: 4px;
+}
+
+/* =========================
+   HERO / CABEÇALHO
+========================= */
+.cabecalho {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(135deg, #0f0f1a, #111827, #0f172a);
+    padding-top: 60px;
+}
+
+.foto-perfil {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    border: 4px solid #00e5ff;
+    box-shadow: 0 0 25px #00e5ff;
+    margin-bottom: 20px;
+    object-fit: cover;
+    transition: 0.3s ease-in-out;
+}
+
+.foto-perfil:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px #ff00ff;
+}
+
+.cabecalho-sub-titulo {
+    font-size: 1.5rem;
+    color: #00e5ff;
+    text-shadow: 0 0 10px #00e5ff;
+}
+
+/* =========================
+   SOBRE
+========================= */
+.sobre-caixa {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 229, 255, 0.3);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
+    backdrop-filter: blur(6px);
+}
+
+/* =========================
+   PROJETOS
+========================= */
 .projetos-caixa {
-    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 }
 
 .projetos-card {
     display: flex;
-    background-color: #1f1f1f;
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
     overflow: hidden;
-    transition: transform 0.3s;
-    align-items: center;
+    border: 1px solid rgba(255, 0, 255, 0.2);
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
 }
 
 .projetos-card:hover {
-    transform: scale(1.02);
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(255, 0, 255, 0.3);
 }
 
 .projeto-imagem {
-    width: 300px;
-    height: 200px;
+    width: 320px;
+    height: 220px;
     object-fit: cover;
+    filter: brightness(0.9);
+    transition: 0.3s;
 }
 
+.projetos-card:hover .projeto-imagem {
+    filter: brightness(1.1);
+}
+
+/* texto dos cards */
 .caixa-texto-projetos {
     padding: 20px;
 }
 
-.infro-projetos {
-    color: #00d4ff;
+/* título dentro do card */
+.projetos-card h3 {
+    color: #ff00ff;
     margin-bottom: 10px;
+    text-shadow: 0 0 10px #ff00ff;
 }
 
-/* Formulário de Contato */
-.fomulario-contato {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 500px;
-    margin: 0 auto;
+/* =========================
+   FOOTER
+========================= */
+.rodape {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid rgba(0, 229, 255, 0.2);
+    color: #00e5ff;
+    margin-top: 50px;
 }
 
-.campo-form, .text-form {
-    width: 100%;
-    padding: 12px;
-    border-radius: 5px;
-    border: none;
-    background-color: #1f1f1f;
-    color: white;
-    font-size: 1rem;
-}
-
-.text-form {
-    height: 120px;
-    resize: vertical;
-}
-
-/* Ajuste para Celulares */
+/* =========================
+   RESPONSIVO
+========================= */
 @media (max-width: 768px) {
+
     .projetos-card {
         flex-direction: column;
     }
+
     .projeto-imagem {
         width: 100%;
     }
+
+    .menu {
+        gap: 10px;
+        font-size: 14px;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .cabecalho-sub-titulo {
+        font-size: 1.2rem;
+    }
 }
-
-
-
