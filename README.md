@@ -94,6 +94,7 @@ Clássico absoluto da cultura anime com batalhas épicas.
  ┣ index.html
  ┣ styles.css
  ┗ README.md
+```
 🚀 Funcionalidades
 📌 Menu fixo com navegação suave
 🧑‍💻 Seção “Sobre mim”
